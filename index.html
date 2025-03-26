@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVM Wallet Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <h2>EVM Wallet Generator</h2>
+    <button onclick="generateWallet()">Generate Wallet</button>
+    <p><strong>Address:</strong> <span id="address"></span></p>
+    <p><strong>Mnemonic:</strong> <span id="mnemonic"></span></p>
+    <p><strong>Private Key:</strong> <span id="privateKey"></span></p>
+
+    <script>
+        async function generateWallet() {
+            const wallet = ethers.Wallet.createRandom();
+            
+            document.getElementById("address").innerText = wallet.address;
+            document.getElementById("mnemonic").innerText = wallet.mnemonic.phrase;
+            document.getElementById("privateKey").innerText = wallet.privateKey;
+        }
+    </script>
+</body>
+</html>
